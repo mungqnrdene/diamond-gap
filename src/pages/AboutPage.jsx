@@ -3,7 +3,59 @@ import { Reveal } from "../components/Reveal";
 import { SectionHeader } from "../components/SectionHeader";
 import { Surface } from "../components/Surface";
 
-export function AboutPage({ focusCards, managementCards, riskCards }) {
+const focusCards = [
+  {
+    title: "Чиг баримжаа",
+    text: "Мэргэжлээ сонгоход эргэлзэж буй залууст бодит туршлага дээр суурилсан шилжилтийн орчин.",
+    icon: "compass",
+  },
+  {
+    title: "Практик сургалт",
+    text: "IT, маркетинг, үйлчилгээ, хэл, гар урлалын чадварыг шууд хэрэглээнд ойр хэлбэрээр өгнө.",
+    icon: "laptop",
+  },
+  {
+    title: "Хувь хүний хөгжил",
+    text: "Карьер төлөвлөлт, санхүүгийн боловсрол, харилцаа, манлайллыг нэгтгэсэн бүтэц.",
+    icon: "growth",
+  },
+];
+
+const managementCards = [
+  ["Сургуулийн захирал", "spark"],
+  ["Сургалтын менежер", "team"],
+  ["Санхүү, захиргаа", "coins"],
+  ["IT / техникийн баг", "laptop"],
+];
+
+const riskCards = [
+  [
+    "Санхүү",
+    "Зардал төлбөрөөс давах эрсдэл",
+    "Бюджет хяналт, оновчлол",
+    "coins",
+  ],
+  [
+    "Элсэлт",
+    "Элсэгч төлөвлөснөөс бага байх",
+    "Маркетинг, тэтгэлэг, олон сувгийн бүртгэл",
+    "chart",
+  ],
+  [
+    "Багш",
+    "Чадварлаг хүний нөөц сулрах",
+    "Хамтрагч сургууль, тасралтгүй хөгжүүлэлт",
+    "team",
+  ],
+  [
+    "Технологи",
+    "Төхөөрөмж, серверийн саатал",
+    "Нөөц төхөөрөмж, үйлчилгээний гэрээ",
+    "shield",
+  ],
+];
+
+export function AboutPage() {
   return (
     <div className="page-enter space-y-8">
       <Surface className="p-7 sm:p-8 xl:p-10">
@@ -32,7 +84,7 @@ export function AboutPage({ focusCards, managementCards, riskCards }) {
         </div>
       </Surface>
 
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="flex flex-col gap-8 lg:grid-cols-2">
         <Reveal>
           <Surface className="p-7">
             <SectionHeader
@@ -40,11 +92,14 @@ export function AboutPage({ focusCards, managementCards, riskCards }) {
               title="Сургалтын чанар, санхүү, хүний нөөцийг нэгдсэн системээр удирдана"
               description="Удирдлагын бүтцийг товч, role-based байдлаар үлдээж уншигдах байдлыг сайжрууллаа."
             />
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <div className=" mt-8 grid gap-3 sm:grid-cols-2">
               {managementCards.map(([item, icon], index) => (
                 <Reveal key={item} delay={70 * index}>
-                  <div className="rounded-[1.4rem] border border-slate-200 bg-slate-50 px-4 py-4 text-sm font-semibold text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
-                    <FeatureIcon name={icon} className="mb-3 h-6 w-6 text-emerald-700 dark:text-emerald-300" />
+                  <div className=" flex flex-col items-center justify-center rounded-[1.4rem] border border-slate-200 bg-slate-50 px-4 py-4 text-lg font-semibold text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                    <FeatureIcon
+                      name={icon}
+                      className="mb-3 h-6 w-6 text-emerald-700 dark:text-emerald-300"
+                    />
                     {item}
                   </div>
                 </Reveal>
@@ -57,14 +112,17 @@ export function AboutPage({ focusCards, managementCards, riskCards }) {
           <Surface className="p-7">
             <SectionHeader
               eyebrow="Эрсдэлийн хяналт"
-              title="Critical risk-үүдийг шууд арга хэмжээтэй нь хослуулсан"
-              description="Санхүү, элсэлт, багш, технологийн эрсдэлийг action-oriented картуудаар харуулж байна."
+              title="Дараах гол эрсдэлүүдийг урьдчилан тооцоолж, тэдгээрийг бууруулах стратеги боловсруулна"
+              description="Санхүү, элсэлт, багш, технологийн эрсдэлийг доор харуулж байна."
             />
-            <div className="mt-8 grid gap-4">
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
               {riskCards.map(([title, text, action, icon], index) => (
                 <Reveal key={title} delay={70 * index}>
-                  <article className="rounded-[1.4rem] border border-slate-200 bg-slate-50 p-5 dark:border-white/10 dark:bg-white/5">
-                    <FeatureIcon name={icon} className="mb-3 h-6 w-6 text-emerald-700 dark:text-emerald-300" />
+                  <article className=" flex flex-col items-center rounded-[1.4rem] border border-slate-200 bg-slate-50 p-5 dark:border-white/10 dark:bg-white/5">
+                    <FeatureIcon
+                      name={icon}
+                      className="mb-3 h-6 w-6 text-emerald-700 dark:text-emerald-300"
+                    />
                     <p className="text-sm font-bold text-slate-950 dark:text-white">
                       {title}
                     </p>

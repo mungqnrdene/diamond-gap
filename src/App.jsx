@@ -1,25 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import {
-  financeCards,
-  focusCards,
-  founderProfile,
-  highlights,
-  managementCards,
-  navItems,
-  paymentOptions,
-  programs,
-  riskCards,
-  schoolFloors,
-  socialLinks,
-} from "./data/siteData.jsx";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
 import { FinancePage } from "./pages/FinancePage";
 import { HomePage } from "./pages/HomePage";
 import { ProgramsPage } from "./pages/ProgramsPage";
 import { SchoolPage } from "./pages/SchoolPage";
+
+const navItems = [
+  { id: "home", label: "Home" },
+  { id: "finance", label: "Finance" },
+  { id: "contact", label: "Contact" },
+];
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +32,7 @@ function App() {
       "diamond-gap-theme",
       darkMode ? "dark" : "light",
     );
-    document.body.style.backgroundColor = darkMode ? "#07141a" : "#f6f8f4";
+    document.body.style.backgroundColor = darkMode ? "#07141a" : "#fafbf9";
   }, [darkMode]);
 
   useEffect(() => {
@@ -85,7 +78,7 @@ function App() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="relative min-h-screen overflow-hidden bg-[#f6f8f4] text-slate-900 transition-colors dark:bg-[#07141a] dark:text-white">
+      <div className="relative min-h-screen overflow-hidden bg-[#fafbf9] text-slate-800 transition-colors dark:bg-[#07141a] dark:text-slate-50">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.98),_transparent_34%),radial-gradient(circle_at_92%_10%,_rgba(18,163,127,0.10),_transparent_24%),radial-gradient(circle_at_10%_82%,_rgba(14,165,233,0.08),_transparent_24%)] dark:bg-[radial-gradient(circle_at_top_left,_rgba(15,23,42,0.8),_transparent_34%),radial-gradient(circle_at_88%_12%,_rgba(16,185,129,0.12),_transparent_24%),radial-gradient(circle_at_18%_82%,_rgba(6,182,212,0.12),_transparent_24%)]" />
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-30 dark:opacity-20" />
         <div className="float-blob absolute -left-20 top-28 h-56 w-56 rounded-full bg-emerald-200/40 blur-3xl dark:bg-emerald-500/20" />
@@ -103,27 +96,19 @@ function App() {
 
         <main className="mx-auto max-w-[96rem] px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pb-24">
           <section ref={homeRef} id="home" className="scroll-mt-28">
-            <HomePage
-              onNavigate={handleNavigate}
-              highlights={highlights}
-              founderProfile={founderProfile}
-            />
+            <HomePage onNavigate={handleNavigate} />
           </section>
 
           <section className="mt-10 xl:mt-14">
-            <AboutPage
-              focusCards={focusCards}
-              managementCards={managementCards}
-              riskCards={riskCards}
-            />
+            <AboutPage />
           </section>
 
           <section className="mt-10 xl:mt-14">
-            <ProgramsPage programs={programs} />
+            <ProgramsPage />
           </section>
 
           <section className="mt-10 xl:mt-14">
-            <SchoolPage schoolFloors={schoolFloors} />
+            <SchoolPage />
           </section>
 
           <section
@@ -131,10 +116,7 @@ function App() {
             id="finance"
             className="mt-14 scroll-mt-28 xl:mt-20"
           >
-            <FinancePage
-              financeCards={financeCards}
-              paymentOptions={paymentOptions}
-            />
+            <FinancePage />
           </section>
 
           <section
@@ -142,7 +124,7 @@ function App() {
             id="contact"
             className="mt-14 scroll-mt-28 xl:mt-20"
           >
-            <ContactPage socialLinks={socialLinks} />
+            <ContactPage />
           </section>
         </main>
       </div>

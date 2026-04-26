@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: #f6f8f4;
+    background: #fafbf9;
   }
 
   body {
@@ -13,11 +13,8 @@
     padding: 0;
     min-width: 320px;
     min-height: 100vh;
-    background: #f6f8f4;
-    font-family:
-      "Plus Jakarta Sans",
-      "Segoe UI",
-      sans-serif;
+    background: #fafbf9;
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
   }
 
   * {
@@ -31,7 +28,7 @@
 
   #root {
     min-height: 100vh;
-    background: #f6f8f4;
+    background: #fafbf9;
   }
 
   html.dark,
