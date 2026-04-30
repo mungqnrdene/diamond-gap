@@ -44,8 +44,8 @@ export function HomePage({ onNavigate }) {
             Career direction + practical skill academy
           </div>
           <h1 className="max-w-5xl text-4xl font-black leading-[0.95] pb-5 tracking-[-0.07em] text-slate-950 dark:text-white sm:text-5xl xl:text-7xl 2xl:text-[5.45rem]">
-                Diamond GAP School of Mongolia
-              </h1>
+            Diamond GAP School of Mongolia
+          </h1>
 
           <div className="grid gap-10 xl:grid-cols-[1.05fr_0.95fr] xl:items-center">
             <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_22px_50px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-white/5 sm:p-6">
@@ -98,9 +98,8 @@ export function HomePage({ onNavigate }) {
               </div>
             </div>
             <div>
-              
               <img
-                className="relative w-full max-w-2xl"
+                className="relative w-full max-w-auto"
                 src={academyImage}
                 alt="academy"
               />
@@ -130,29 +129,39 @@ export function HomePage({ onNavigate }) {
               </div>
             </div>
           </div>
+          <div className="grid gap-10 xl:grid-cols-2 items-start mt-8">
+            <div className="relative w-full max-w-auto pb-[56.25%]">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-lg"
+                src="https://www.youtube.com/embed/0eN0oQ8aviQ"
+                title="YouTube video"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              ></iframe>
+            </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 2xl:grid-cols-4">
-            {highlights.map((item, index) => (
-              <Reveal key={item.label} delay={80 * index}>
-                <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_16px_36px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/5">
-                  <p className="mt-2 text-lg flex justify-center leading-7 text-slate-600 dark:text-slate-300">
-                    {item.label}
-                  </p>
-                  <div className="flex flex-row items-center justify-center">
-                    <FeatureIcon
-                    name={item.icon}
-                    
-                    className="mr-4 h-8 w-8 text-emerald-700 dark:text-emerald-300"
-                    
-                  />
-                  <p className="text-3xl font-black tracking-[-0.05em] text-slate-950 dark:text-white">
-                    {item.value}
-                  </p>
-                  </div>
-                  
-                </article>
-              </Reveal>
-            ))}
+            <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-2">
+              {highlights.map((item, index) => (
+                <Reveal key={item.label} delay={80 * index}>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_16px_36px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/5">
+                    <p className="mt-2 text-lg flex justify-center leading-7 text-slate-600 dark:text-slate-300">
+                      {item.label}
+                    </p>
+
+                    <div className="flex flex-row items-center justify-center">
+                      <FeatureIcon
+                        name={item.icon}
+                        className="mr-4 h-8 w-8 text-emerald-700 dark:text-emerald-300"
+                      />
+                      <p className="text-3xl font-black tracking-[-0.05em] text-slate-950 dark:text-white">
+                        {item.value}
+                      </p>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </Surface>
       </Reveal>
